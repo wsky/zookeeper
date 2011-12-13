@@ -23,7 +23,6 @@
     using System.Net;
     using System.Text;
     using System.Threading;
-    using log4net;
     using Org.Apache.Jute;
     using Org.Apache.Zookeeper.Proto;
 
@@ -55,7 +54,7 @@
         internal TimeSpan connectTimeout;
         internal TimeSpan readTimeout;
         internal bool closing;
-        internal ClientConnectionRequestProducer producer;
+        internal ClientConnectionRequestProducer2 producer;
         internal ClientConnectionEventConsumer consumer;
 
         /// <summary>
@@ -103,7 +102,7 @@
 
         private void CreateProducer()
         {
-            producer = new ClientConnectionRequestProducer(this);
+            producer = new ClientConnectionRequestProducer2(this);
         }
 
         private string SetChrootPath()

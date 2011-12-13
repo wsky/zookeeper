@@ -20,7 +20,6 @@
     using System;
     using System.Collections.Concurrent;
     using System.Threading;
-    using log4net;
 
     public class ClientConnectionEventConsumer : IStartable, IDisposable
     {
@@ -54,15 +53,20 @@
             {
                 while (!waitingEvents.IsCompleted)
                 {
-                    object @event = waitingEvents.Take();
+                    //object @event = waitingEvents.Take();
                     try
                     {
+                        //should catch when dispose by wsky
+                        object @event = waitingEvents.Take();
                         if (@event is ClientConnection.WatcherSetEventPair)
                         {
                             // each watcher will process the event
                             ClientConnection.WatcherSetEventPair pair = (ClientConnection.WatcherSetEventPair) @event;
                             foreach (IWatcher watcher in pair.watchers)
                             {
+                                //by wsky
+                                if (watcher == null)
+                                    continue;
                                 try
                                 {
                                     watcher.Process(pair.@event);

@@ -19,7 +19,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using log4net;
 
     public class ZKWatchManager : IClientWatchManager 
     {

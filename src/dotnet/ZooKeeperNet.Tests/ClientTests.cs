@@ -15,7 +15,7 @@
  *  limitations under the License.
  *
  */
-﻿namespace ZooKeeperNet.Tests
+namespace ZooKeeperNet.Tests
 {
     using System;
     using System.Collections.Concurrent;
@@ -26,6 +26,7 @@
     using log4net;
     using NUnit.Framework;
     using Org.Apache.Zookeeper.Data;
+    using System.Diagnostics;
 
     [TestFixture]
     public class ClientTests : AbstractZooKeeperTests
@@ -145,6 +146,24 @@
                 Assert.AreEqual(1, acls.Count);
                 Assert.AreEqual(Ids.OPEN_ACL_UNSAFE, acls);
             }
+        }
+
+        [Test]
+        public void testPerf()
+        {
+            var zk = CreateClient();
+
+            var pc = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            var i = 0;
+            var total = 5;
+            float temp;
+            while (i++ < total)
+            {
+                Trace.WriteLine(temp = pc.NextValue());
+                //Assert.Less(temp, 10);
+                Thread.Sleep(1000);
+            }
+            zk.Dispose();
         }
 
         private class MyWatcher : CountdownWatcher

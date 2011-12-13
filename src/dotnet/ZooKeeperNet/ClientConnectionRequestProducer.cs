@@ -10,7 +10,6 @@ namespace ZooKeeperNet
     using System.Runtime.CompilerServices;
     using System.Text;
     using System.Threading;
-    using log4net;
     using Org.Apache.Jute;
     using Org.Apache.Zookeeper.Proto;
 

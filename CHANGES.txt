@@ -6,7 +6,7 @@ BUGFIXES:
 
 Backward compatible changes:
 
-BUGFIXES: 
+BUGFIXES:
 
 IMPROVEMENTS:
   ZOOKEEPER-724. Improve junit test integration - log harness information 
@@ -14,6 +14,14 @@ IMPROVEMENTS:
 
 NEW FEATURES:
 
+Release 3.4.0 - 2011-12-12 by wsky
+BUGFIXES:
+	ZOOKEEPER-NET:enable null watcher
+	ZOOKEEPER-NET:waitingEvents.Take() error when dispose()
+	ZOOKEEPER-NET:producer cpu 100% bug
+IMPROVEMENTS:
+	remove log4net heavy dependency
+	refact producer2
 
 Release 3.3.0 - 2010-03-24
 

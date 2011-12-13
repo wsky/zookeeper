@@ -11,7 +11,7 @@
     [TestFixture]
     public class WriteLockTests : AbstractZooKeeperTests
     {
-        private static readonly ILog LOG = LogManager.GetLogger(typeof(WriteLockTests));
+        private static readonly log4net.ILog LOG = log4net.LogManager.GetLogger(typeof(WriteLockTests));
 
         protected int sessionTimeout = 10 * 1000;
         protected String dir = "/" + Guid.NewGuid();

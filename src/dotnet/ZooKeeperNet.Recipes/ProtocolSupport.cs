@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Threading;
-    using log4net;
     using Org.Apache.Zookeeper.Data;
  
     public abstract class ProtocolSupport : IDisposable

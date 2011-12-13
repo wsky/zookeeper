@@ -2,4 +2,5 @@ bin
 obj
 _ReSharper*
 *ReSharper*
+Generated/*.cs
 *.suo
